@@ -63,6 +63,7 @@ const userSchema = mongoose.Schema({
 
 userSchema.pre('save', function (next) {
   var user = this;
+  console.log('====== USER===', user);
   if (user.isModified('password')) {
     bcrypt.genSalt(saltRounds, function (err, salt) {
       if (err) return next(err);
@@ -91,7 +92,7 @@ userSchema.pre('save', function (next) {
                   To watch all our films, there's only one last step left!
               </h3>
               <a 
-                  href="https://hypertube-scao.herokuapp.com/confirmation/${user.tokenConf}" 
+                  href="#" 
                   style="
                       background-color: rgb(25, 186, 144);
                       padding: 15px 20px;
